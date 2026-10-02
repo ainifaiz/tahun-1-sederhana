@@ -1,0 +1,47 @@
+:root{
+  --sky:#dff6ff;--blue:#60a5fa;--deep:#1d4ed8;--mint:#d9fbe8;--green:#22c55e;
+  --yellow:#fff0a8;--orange:#fb923c;--pink:#fbcfe8;--purple:#c4b5fd;--ink:#17324d;
+  --card:#ffffff;--shadow:0 12px 30px rgba(23,50,77,.14);--radius:28px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:linear-gradient(160deg,#dff6ff 0%,#fff8d9 48%,#e7f8e9 100%);color:var(--ink);font-family:"Trebuchet MS","Arial Rounded MT Bold",system-ui,sans-serif;overflow-x:hidden}
+button{font:inherit;color:inherit}
+button:focus-visible{outline:4px solid #111827;outline-offset:4px}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px clamp(12px,3vw,28px);background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:4px solid #bde3ff}
+.icon-btn{width:54px;height:54px;border:0;border-radius:18px;background:#eef8ff;box-shadow:0 4px 0 #b8ddf8;font-size:28px;cursor:pointer}
+.progress-wrap{text-align:center;min-width:180px}.progress-title{font-weight:900;font-size:13px;letter-spacing:.08em}.stars{font-size:30px;line-height:1;color:#f59e0b;letter-spacing:2px}
+main{width:min(1100px,100%);margin:auto;padding:18px 14px 30px}
+.screen{display:none;min-height:calc(100vh - 150px);animation:screenIn .35s ease}.screen.active{display:block}
+@keyframes screenIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.hero-card,.game-card{background:rgba(255,255,255,.97);border:4px solid #fff;border-radius:var(--radius);box-shadow:var(--shadow)}
+.hero-card{max-width:900px;margin:4vh auto 0;text-align:center;padding:clamp(22px,5vw,50px)}
+.hero-badge{display:inline-block;padding:8px 15px;border-radius:999px;background:#dbeafe;color:#1e40af;font-weight:900;font-size:14px}
+h1{font-size:clamp(34px,7vw,64px);line-height:1.05;margin:18px 0 8px}h2{font-size:clamp(28px,5vw,44px);margin:0;line-height:1.05}h3{font-size:clamp(22px,3vw,30px);margin:8px 0 14px}.subtitle{font-size:clamp(22px,3.5vw,32px);font-weight:900;color:#0f766e;margin:8px 0 24px}
+.mission-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px auto;max-width:760px}.mission-icons div{display:flex;flex-direction:column;justify-content:center;min-height:120px;padding:14px;background:#f8fbff;border:3px solid #d9efff;border-radius:22px;font-size:44px}.mission-icons span{font-size:16px;font-weight:900;margin-top:6px}
+.instruction,.scenario{font-size:clamp(21px,3vw,28px);font-weight:900;line-height:1.35;text-align:center}.instruction{background:#fff7cc;padding:16px;border-radius:20px;border:3px solid #fcd34d}
+.primary-btn,.secondary-btn,.choice{min-height:56px;padding:14px 22px;border:0;border-radius:18px;font-size:clamp(20px,2.5vw,26px);font-weight:900;cursor:pointer;transition:transform .12s ease,filter .12s ease,box-shadow .12s ease;touch-action:manipulation}
+.primary-btn{background:#22c55e;color:#063f1f;box-shadow:0 6px 0 #15803d}.secondary-btn{background:#dbeafe;color:#1e3a8a;box-shadow:0 6px 0 #93c5fd;margin-left:10px}.primary-btn:active,.secondary-btn:active,.choice:active,.icon-btn:active{transform:translateY(4px);box-shadow:none}
+.mission-head{display:flex;align-items:center;justify-content:center;gap:14px;margin:10px auto 18px;text-align:left}.mission-head>span{font-size:58px}.mission-head small{font-weight:900;color:#475569;font-size:16px}.game-card{padding:clamp(16px,4vw,36px);max-width:1000px;margin:auto}
+.feedback{min-height:38px;font-size:clamp(19px,2.4vw,24px);font-weight:900;text-align:center;margin:14px auto}.feedback.success{color:#15803d}.feedback.hint{color:#b45309}
+.hidden{display:none!important}.quiz-block{margin-top:22px;padding:18px;border-radius:22px;background:#f8fbff;border:3px dashed #93c5fd}
+.choice-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.choice-stack{display:grid;gap:14px;max-width:700px;margin:auto}.choice{background:#e2e8f0;box-shadow:0 5px 0 #94a3b8}.choice.good{background:#dcfce7;box-shadow:0 5px 0 #86efac}.choice.selected{outline:5px solid #2563eb}
+.sink-scene{position:relative;height:250px;max-width:420px;margin:12px auto 18px;background:linear-gradient(#dff6ff 0 60%,#eef6f8 60%);border:4px solid #b6d7e8;border-radius:28px;overflow:hidden}.faucet{position:absolute;top:34px;left:50%;transform:translateX(-50%);font-size:85px;z-index:3}.water-stream{position:absolute;top:105px;left:50%;width:24px;height:95px;transform:translateX(-20%);background:linear-gradient(90deg,#60a5fa,#bae6fd,#38bdf8);border-radius:0 0 16px 16px;animation:flow .7s linear infinite}.water-stream.off{height:0;opacity:0}.basin{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);width:260px;height:70px;background:#fff;border:6px solid #94a3b8;border-radius:0 0 120px 120px;font-size:36px;text-align:center;padding-top:12px}
+@keyframes flow{50%{filter:brightness(1.15);transform:translateX(-20%) scaleX(.8)}}
+.room{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px auto}.device,.door{min-height:170px;border-radius:24px;border:4px solid #cbd5e1;background:#f8fafc;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}.device{cursor:pointer}.device span,.door{font-size:46px}.device b,.door span{font-size:18px}.device em{font-style:normal;font-weight:900;background:#fee2e2;color:#b91c1c;border-radius:999px;padding:6px 12px}.device.off{background:#ecfdf5;border-color:#86efac}.device.off em{background:#dcfce7;color:#166534}.fan.on span{animation:spin 1.2s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.reading-scene{text-align:center;font-size:60px;margin:10px}
+.food-tray,.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}.food-card,.shop-card{min-height:100px;border:3px solid #dbeafe;background:#f8fbff;border-radius:20px;padding:10px;text-align:center;font-weight:900;cursor:pointer;font-size:18px}.food-card span,.shop-card span{display:block;font-size:42px;margin-bottom:4px}.food-card.selected,.shop-card.selected{background:#dcfce7;border-color:#22c55e;box-shadow:0 0 0 4px #bbf7d0}
+.plate-zone{text-align:center}.plate{width:min(340px,90%);height:170px;margin:15px auto 8px;border-radius:50%;border:14px double #93c5fd;background:#fff;display:grid;place-items:center;padding:18px}.plate span{font-size:24px;font-weight:900}
+.plate-compare{display:grid;grid-template-columns:1fr 1fr;gap:18px}.mini-plate{min-height:180px;border-radius:50%;border:10px double #cbd5e1;background:#fff;cursor:pointer;font-size:28px;font-weight:900}.mini-plate span{display:block;margin-bottom:10px}.mini-plate.piled{background:#fff7ed}
+.emoji-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.emoji-row button{border:3px solid #ddd6fe;background:#faf5ff;border-radius:20px;min-width:150px;padding:14px;cursor:pointer;font-size:48px}.emoji-row span{display:block;font-size:17px;font-weight:900}.emotion-sentence{font-size:clamp(19px,2.5vw,26px);font-weight:900;text-align:center;color:#6d28d9}
+.wallet{max-width:500px;margin:0 auto 18px;background:#d9f99d;border:4px solid #84cc16;border-radius:20px;padding:16px;text-align:center;font-size:clamp(24px,3vw,32px);font-weight:900}.receipt{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin:14px auto;padding:15px;border:3px dashed #94a3b8;border-radius:18px;font-size:22px;font-weight:900}.piggy{text-align:center;font-size:90px}.coin{width:64px;height:64px;border-radius:50%;background:#fde047;border:4px solid #eab308;display:grid;place-items:center;font-weight:900;margin:8px auto;opacity:0}.coin.drop{animation:coinDrop 1s ease forwards}@keyframes coinDrop{0%{opacity:1;transform:translateY(-130px) scale(1)}100%{opacity:.15;transform:translateY(15px) scale(.45)}}
+.end-card .trophy{font-size:100px}.final-stars{font-size:44px;letter-spacing:5px}.achievement-list{display:grid;gap:10px;max-width:680px;margin:24px auto;text-align:left}.achievement-list div{background:#f8fbff;border-radius:18px;padding:14px 18px;font-size:22px;font-weight:900}.final-slogan{font-size:clamp(24px,4vw,38px);font-weight:1000;color:#b45309}.action-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+#confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}.confetti-piece{position:absolute;top:-30px;width:14px;height:20px;border-radius:4px;animation:fall 2.8s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.2}}
+footer{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;padding:14px 18px 28px;color:#475569;font-weight:800}.text-btn{border:0;background:transparent;text-decoration:underline;cursor:pointer;color:#475569}
+@media (max-width:760px){
+  .mission-icons,.food-tray,.shop-grid{grid-template-columns:repeat(2,1fr)}
+  .room{grid-template-columns:repeat(2,1fr)}
+  .plate-compare{grid-template-columns:1fr}
+  .secondary-btn{margin-left:0;margin-top:10px}
+  .hero-card{margin-top:1vh}
+}
+@media (max-width:430px){.topbar{gap:6px}.progress-wrap{min-width:140px}.stars{font-size:25px}.icon-btn{width:48px;height:48px}.mission-head>span{font-size:46px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
