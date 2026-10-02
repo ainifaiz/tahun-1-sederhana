@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#7dd3fc" />
+  <title>Misi Anak Sederhana</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar" aria-label="Kemajuan permainan">
+    <button class="icon-btn" id="homeBtn" aria-label="Menu utama">🏠</button>
+    <div class="progress-wrap">
+      <div class="progress-title">BINTANG MISI</div>
+      <div id="stars" class="stars" aria-live="polite">☆ ☆ ☆ ☆</div>
+    </div>
+    <button class="icon-btn" id="soundBtn" aria-label="Baca arahan">🔊</button>
+  </header>
+
+  <main id="app">
+    <section class="screen active" id="home" data-speech="Selamat datang ke Misi Anak Sederhana. Selesaikan empat misi dan kumpul empat bintang.">
+      <div class="hero-card">
+        <div class="hero-badge">PENDIDIKAN MORAL TAHUN 1</div>
+        <h1>🌟 MISI ANAK SEDERHANA</h1>
+        <p class="subtitle">Guna Secukupnya, Jangan Membazir!</p>
+        <div class="mission-icons" aria-label="Empat misi">
+          <div>💧<span>AIR</span></div>
+          <div>💡<span>ELEKTRIK</span></div>
+          <div>🍚<span>MAKANAN</span></div>
+          <div>💰<span>WANG</span></div>
+        </div>
+        <p class="instruction">Selesaikan 4 misi dan kumpul 4 bintang!</p>
+        <button class="primary-btn" id="startBtn">▶️ MULA MISI</button>
+        <button class="secondary-btn speak-page">🔊 BACA ARAHAN</button>
+      </div>
+    </section>
+
+    <section class="screen" id="water" data-speech="Misi satu. Selamatkan air. Air sedang mengalir. Apa yang perlu kamu lakukan selepas menggunakannya?">
+      <div class="mission-head"><span>💧</span><div><small>MISI 1</small><h2>SELAMATKAN AIR!</h2></div></div>
+      <div class="game-card">
+        <p class="instruction">Air sedang mengalir. Apa yang perlu kamu lakukan selepas menggunakannya?</p>
+        <div class="sink-scene" aria-label="Sinki dengan pili air">
+          <div class="faucet">🚰</div>
+          <div id="waterStream" class="water-stream"></div>
+          <div class="basin">🫧</div>
+        </div>
+        <button id="closeTapBtn" class="primary-btn">🚰 TUTUP PILI</button>
+        <div id="waterFeedback" class="feedback" aria-live="polite"></div>
+
+        <div id="waterQuiz" class="quiz-block hidden">
+          <h3>🌊 PILIH TINDAKAN SEDERHANA</h3>
+          <p id="waterSituation" class="scenario"></p>
+          <div class="choice-row">
+            <button class="choice good" data-water-choice="close">✅ TUTUP PILI</button>
+            <button class="choice" data-water-choice="open">❌ BIARKAN TERBUKA</button>
+          </div>
+          <p id="waterQuizFeedback" class="feedback"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="electric" data-speech="Misi dua. Pejuang jimat elektrik. Kamu mahu keluar dari bilik. Tekan peralatan yang perlu ditutup.">
+      <div class="mission-head"><span>💡</span><div><small>MISI 2</small><h2>PEJUANG JIMAT ELEKTRIK!</h2></div></div>
+      <div class="game-card">
+        <p class="instruction">Kamu mahu keluar dari bilik. Tekan peralatan yang perlu ditutup.</p>
+        <div class="room">
+          <button class="device on" data-device="lamp" aria-label="Lampu, hidup"><span>💡</span><b>LAMPU</b><em>ON</em></button>
+          <button class="device on fan" data-device="fan" aria-label="Kipas, hidup"><span>🌀</span><b>KIPAS</b><em>ON</em></button>
+          <button class="device on" data-device="tv" aria-label="Televisyen, hidup"><span>📺</span><b>TV</b><em>ON</em></button>
+          <div class="door">🚪<span>PINTU</span></div>
+        </div>
+        <p id="electricFeedback" class="feedback" aria-live="polite"></p>
+
+        <div id="electricKbat" class="quiz-block hidden">
+          <h3>🧠 FIKIR DULU!</h3>
+          <div class="reading-scene">📖 👧🏻 💡</div>
+          <p class="scenario">Aina sedang membaca buku. Bilik gelap. Perlukah lampu ditutup?</p>
+          <div class="choice-row">
+            <button class="choice" data-kbat="yes">✅ YA</button>
+            <button class="choice good" data-kbat="no">✅ TIDAK</button>
+          </div>
+          <p id="kbatFeedback" class="feedback"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="food" data-speech="Misi tiga. Pinggan saya secukupnya. Pilih tiga atau empat makanan yang kamu boleh habiskan.">
+      <div class="mission-head"><span>🍚</span><div><small>MISI 3</small><h2>PINGGAN SAYA SECUKUPNYA!</h2></div></div>
+      <div class="game-card">
+        <p class="instruction">Pilih 3 atau 4 makanan yang kamu boleh habiskan.</p>
+        <div id="foodTray" class="food-tray" aria-label="Pilihan makanan"></div>
+        <div class="plate-zone">
+          <div class="plate"><span id="plateItems">PINGGAN</span></div>
+          <p><b id="foodCount">0</b> makanan dipilih</p>
+        </div>
+        <button id="checkFoodBtn" class="primary-btn">✅ SEMAK PINGGAN</button>
+        <p id="foodFeedback" class="feedback"></p>
+
+        <div id="plateCompare" class="quiz-block hidden">
+          <h3>🍽️ PINGGAN MANA SEDERHANA?</h3>
+          <div class="plate-compare">
+            <button class="mini-plate" data-plate="a"><span>🍚 🍗 🥦 🍉</span><b>PINGGAN A</b></button>
+            <button class="mini-plate piled" data-plate="b"><span>🍚🍚🍗🍗🧁🍰🍟🍔</span><b>PINGGAN B</b></button>
+          </div>
+          <p id="plateFeedback" class="feedback"></p>
+        </div>
+
+        <div id="foodWhy" class="quiz-block hidden">
+          <h3>🧠 MENGAPA?</h3>
+          <p class="scenario">Mengapa kita tidak boleh mengambil terlalu banyak?</p>
+          <div class="choice-stack">
+            <button class="choice good" data-why="waste">✅ Makanan boleh membazir</button>
+            <button class="choice" data-why="full">❌ Supaya pinggan nampak penuh</button>
+          </div>
+          <p id="whyFeedback" class="feedback"></p>
+        </div>
+
+        <div id="emotionBlock" class="quiz-block hidden">
+          <h3>😊 BAGAIMANA PERASAAN KAMU?</h3>
+          <p class="scenario">Bagaimana perasaan kamu apabila tidak membazir makanan?</p>
+          <div class="emoji-row">
+            <button data-emotion="GEMBIRA">😄<span>GEMBIRA</span></button>
+            <button data-emotion="BANGGA">😊<span>BANGGA</span></button>
+            <button data-emotion="PUAS HATI">😌<span>PUAS HATI</span></button>
+          </div>
+          <p id="emotionSentence" class="emotion-sentence"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="money" data-speech="Misi empat. Tabung bijak. Kamu ada lima ringgit. Pilih barang yang kamu perlu: makanan, minuman dan pensel.">
+      <div class="mission-head"><span>💰</span><div><small>MISI 4</small><h2>TABUNG BIJAK!</h2></div></div>
+      <div class="game-card">
+        <div class="wallet">💵 WANG SAYA: <strong>RM5.00</strong></div>
+        <p class="instruction">Pilih barang yang kamu PERLU.</p>
+        <div id="shopItems" class="shop-grid"></div>
+        <div class="receipt">
+          <span>JUMLAH: <b id="totalMoney">RM0</b></span>
+          <span>BAKI: <b id="balanceMoney">RM5</b></span>
+        </div>
+        <button id="checkMoneyBtn" class="primary-btn">🧾 SEMAK PILIHAN</button>
+        <p id="moneyFeedback" class="feedback"></p>
+
+        <div id="saveBlock" class="quiz-block hidden">
+          <div class="piggy">🐷</div>
+          <p class="scenario">Apa yang patut kamu lakukan dengan baki RM1?</p>
+          <div class="choice-row">
+            <button class="choice good" data-save="save">🐷 SIMPAN</button>
+            <button class="choice" data-save="spend">🍭 HABISKAN</button>
+          </div>
+          <div id="coin" class="coin">RM1</div>
+          <p id="saveFeedback" class="feedback"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="end" data-speech="Tahniah. Kamu Anak Sederhana Hebat. Guna secukupnya, jangan membazir.">
+      <div class="hero-card end-card">
+        <div class="trophy">🏆</div>
+        <h1>TAHNIAH!</h1>
+        <h2>KAMU ANAK SEDERHANA HEBAT!</h2>
+        <div class="final-stars">⭐ ⭐ ⭐ ⭐</div>
+        <div class="achievement-list">
+          <div>💧 <span>Saya tutup pili selepas guna.</span></div>
+          <div>💡 <span>Saya guna elektrik apabila perlu.</span></div>
+          <div>🍚 <span>Saya ambil makanan secukupnya.</span></div>
+          <div>💰 <span>Saya beli yang perlu dan simpan baki.</span></div>
+        </div>
+        <div id="finalEmotion" class="emotion-sentence"></div>
+        <p class="final-slogan">🌟 GUNA SECUKUPNYA, JANGAN MEMBAZIR!</p>
+        <div class="action-row">
+          <button id="replayBtn" class="primary-btn">🔄 MAIN SEMULA</button>
+          <button id="menuBtn" class="secondary-btn">🏠 MENU UTAMA</button>
+        </div>
+      </div>
+      <div id="confetti" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>SP 13.1 • SP 13.4 • SP 13.5</span>
+    <button id="resetBtn" class="text-btn">Reset kemajuan</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
